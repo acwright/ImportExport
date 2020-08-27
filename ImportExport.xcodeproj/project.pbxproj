@@ -28,6 +28,7 @@
 		45F6EAFD24F8213A008AE3C0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		45F6EB0F24F8259E008AE3C0 /* MessageDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDocument.swift; sourceTree = "<group>"; };
 		45F6EB1224F82CC5008AE3C0 /* DesktopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopView.swift; sourceTree = "<group>"; };
+		45F6EB1424F83352008AE3C0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				45F6EAED24F8213A008AE3C0 /* Assets.xcassets */,
+				45F6EB1424F83352008AE3C0 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
