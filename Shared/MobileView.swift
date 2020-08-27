@@ -39,7 +39,7 @@ struct MobileView: View {
         .padding()
         .fileImporter(
             isPresented: $isImporting,
-            allowedContentTypes: [.item],
+            allowedContentTypes: [.plainText],
             allowsMultipleSelection: false
         ) { result in
             do {
