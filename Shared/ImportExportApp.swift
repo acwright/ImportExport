@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct ImportExportApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            #if os(iOS)
+            MobileView()
+            #elseif os(macOS)
+            DesktopView()
+            #endif
         }
     }
+    
 }

@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		45F6EAFE24F8213A008AE3C0 /* ImportExportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EAEB24F82138008AE3C0 /* ImportExportApp.swift */; };
 		45F6EAFF24F8213A008AE3C0 /* ImportExportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EAEB24F82138008AE3C0 /* ImportExportApp.swift */; };
-		45F6EB0024F8213A008AE3C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EAEC24F82138008AE3C0 /* ContentView.swift */; };
-		45F6EB0124F8213A008AE3C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EAEC24F82138008AE3C0 /* ContentView.swift */; };
+		45F6EB0024F8213A008AE3C0 /* MobileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EAEC24F82138008AE3C0 /* MobileView.swift */; };
 		45F6EB0224F8213A008AE3C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F6EAED24F8213A008AE3C0 /* Assets.xcassets */; };
 		45F6EB0324F8213A008AE3C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F6EAED24F8213A008AE3C0 /* Assets.xcassets */; };
+		45F6EB1024F8259E008AE3C0 /* MessageDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EB0F24F8259E008AE3C0 /* MessageDocument.swift */; };
+		45F6EB1124F8259E008AE3C0 /* MessageDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EB0F24F8259E008AE3C0 /* MessageDocument.swift */; };
+		45F6EB1324F82CC5008AE3C0 /* DesktopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EB1224F82CC5008AE3C0 /* DesktopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45F6EAEB24F82138008AE3C0 /* ImportExportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportExportApp.swift; sourceTree = "<group>"; };
-		45F6EAEC24F82138008AE3C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		45F6EAEC24F82138008AE3C0 /* MobileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileView.swift; sourceTree = "<group>"; };
 		45F6EAED24F8213A008AE3C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45F6EAF224F8213A008AE3C0 /* ImportExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImportExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F6EAF524F8213A008AE3C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45F6EAFA24F8213A008AE3C0 /* ImportExport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImportExport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F6EAFC24F8213A008AE3C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45F6EAFD24F8213A008AE3C0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		45F6EB0F24F8259E008AE3C0 /* MessageDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDocument.swift; sourceTree = "<group>"; };
+		45F6EB1224F82CC5008AE3C0 /* DesktopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +61,10 @@
 		45F6EAEA24F82138008AE3C0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				45F6EB0E24F8258C008AE3C0 /* Documents */,
 				45F6EAEB24F82138008AE3C0 /* ImportExportApp.swift */,
-				45F6EAEC24F82138008AE3C0 /* ContentView.swift */,
-				45F6EAED24F8213A008AE3C0 /* Assets.xcassets */,
+				45F6EB0C24F8214E008AE3C0 /* Supporting Files */,
+				45F6EB0D24F821D8008AE3C0 /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -88,6 +93,31 @@
 				45F6EAFD24F8213A008AE3C0 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		45F6EB0C24F8214E008AE3C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45F6EAED24F8213A008AE3C0 /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45F6EB0D24F821D8008AE3C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45F6EAEC24F82138008AE3C0 /* MobileView.swift */,
+				45F6EB1224F82CC5008AE3C0 /* DesktopView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		45F6EB0E24F8258C008AE3C0 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				45F6EB0F24F8259E008AE3C0 /* MessageDocument.swift */,
+			);
+			name = Documents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45F6EB0024F8213A008AE3C0 /* ContentView.swift in Sources */,
+				45F6EB0024F8213A008AE3C0 /* MobileView.swift in Sources */,
+				45F6EB1024F8259E008AE3C0 /* MessageDocument.swift in Sources */,
 				45F6EAFE24F8213A008AE3C0 /* ImportExportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45F6EB0124F8213A008AE3C0 /* ContentView.swift in Sources */,
+				45F6EB1124F8259E008AE3C0 /* MessageDocument.swift in Sources */,
+				45F6EB1324F82CC5008AE3C0 /* DesktopView.swift in Sources */,
 				45F6EAFF24F8213A008AE3C0 /* ImportExportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +361,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.acwrightdesign.ImportExport;
 				PRODUCT_NAME = ImportExport;
 				SDKROOT = iphoneos;
@@ -351,6 +384,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.acwrightdesign.ImportExport;
 				PRODUCT_NAME = ImportExport;
 				SDKROOT = iphoneos;
@@ -377,6 +411,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.acwrightdesign.ImportExport;
 				PRODUCT_NAME = ImportExport;
 				SDKROOT = macosx;
@@ -401,6 +436,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.acwrightdesign.ImportExport;
 				PRODUCT_NAME = ImportExport;
 				SDKROOT = macosx;
