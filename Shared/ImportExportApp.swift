@@ -12,11 +12,7 @@ struct ImportExportApp: App {
     
     var body: some Scene {
         WindowGroup {
-            #if os(iOS)
-            MobileView()
-            #elseif os(macOS)
-            DesktopView()
-            #endif
+            ContentView()
         }
     }
     

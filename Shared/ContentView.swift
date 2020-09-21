@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
-struct MobileView: View {
+struct ContentView: View {
     
     @State private var document: MessageDocument = MessageDocument(message: "Hello, World!")
     @State private var isImporting: Bool = false
@@ -39,7 +40,7 @@ struct MobileView: View {
         .padding()
         .fileImporter(
             isPresented: $isImporting,
-            allowedContentTypes: [.item],
+            allowedContentTypes: [UTType.plainText],
             allowsMultipleSelection: false
         ) { result in
             do {
@@ -54,7 +55,7 @@ struct MobileView: View {
         .fileExporter(
             isPresented: $isExporting,
             document: document,
-            contentType: .plainText,
+            contentType: UTType.plainText,
             defaultFilename: "Message"
         ) { result in
             if case .success = result {
@@ -70,7 +71,7 @@ struct MobileView: View {
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        MobileView()
+        ContentView()
             .previewLayout(.sizeThatFits)
     }
     
