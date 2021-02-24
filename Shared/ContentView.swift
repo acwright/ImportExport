@@ -23,13 +23,28 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    Button(action: { isImporting = true }, label: {
+                    Button(action: {
+                        isImporting = false
+                        
+                        //fix broken picker sheet
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            isImporting = true
+                        }
+                    }, label: {
                         Text("Import")
                     })
                     
                     Spacer()
                     
-                    Button(action: { isExporting = true }, label: {
+                    Button(action: {
+                        isExporting = false
+                        
+                        //fix broken picker sheet
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            isExporting = true
+                        }
+                        
+                    }, label: {
                         Text("Export")
                     })
                     
@@ -45,11 +60,23 @@ struct ContentView: View {
         ) { result in
             do {
                 guard let selectedFile: URL = try result.get().first else { return }
-                guard let message = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
                 
-                document.message = message
+                //trying to get access to url contents
+                if (CFURLStartAccessingSecurityScopedResource(selectedFile as CFURL)) {
+                    
+                    guard let message = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
+                    
+                    document.message = message
+                        
+                    //done accessing the url
+                    CFURLStopAccessingSecurityScopedResource(selectedFile as CFURL)
+                }
+                else {
+                    print("Permission error!")
+                }
             } catch {
                 // Handle failure.
+                print(error.localizedDescription)
             }
         }
         .fileExporter(
