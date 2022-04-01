@@ -24,12 +24,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
-                        isImporting = false
-                        
-                        //fix broken picker sheet
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            isImporting = true
-                        }
+                        isImporting.toggle()
                     }, label: {
                         Text("Import")
                     })
@@ -37,13 +32,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
-                        isExporting = false
-                        
-                        //fix broken picker sheet
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            isExporting = true
-                        }
-                        
+                        isExporting.toggle()
                     }, label: {
                         Text("Export")
                     })
@@ -60,23 +49,15 @@ struct ContentView: View {
         ) { result in
             do {
                 guard let selectedFile: URL = try result.get().first else { return }
+                guard selectedFile.startAccessingSecurityScopedResource() else { return }
                 
-                //trying to get access to url contents
-                if (CFURLStartAccessingSecurityScopedResource(selectedFile as CFURL)) {
-                    
-                    guard let message = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
-                    
-                    document.message = message
-                        
-                    //done accessing the url
-                    CFURLStopAccessingSecurityScopedResource(selectedFile as CFURL)
-                }
-                else {
-                    print("Permission error!")
-                }
+                guard let message = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
+                
+                document.message = message
+                
+                selectedFile.stopAccessingSecurityScopedResource()
             } catch {
-                // Handle failure.
-                print(error.localizedDescription)
+                Swift.print(error.localizedDescription)
             }
         }
         .fileExporter(
@@ -86,9 +67,9 @@ struct ContentView: View {
             defaultFilename: "Message"
         ) { result in
             if case .success = result {
-                // Handle success.
+                Swift.print("Success!")
             } else {
-                // Handle failure.
+                Swift.print("Something went wrong…")
             }
         }
     }
