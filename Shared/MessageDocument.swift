@@ -2,7 +2,7 @@
 //  MessageDocument.swift
 //  ImportExport
 //
-//  Created by Aaron Wright on 8/27/20.
+//  Created by A.C. Wright on 8/27/20.
 //
 
 import SwiftUI
